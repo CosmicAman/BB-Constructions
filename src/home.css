@@ -1,0 +1,16 @@
+.home{
+text-align: center; 
+}
+
+
+h1 {
+  color: #2e8b57;
+  font-size: 2rem;
+}
+
+p {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 100%;
+}

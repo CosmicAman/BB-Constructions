@@ -1,0 +1,119 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #232323;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar Styles */
+nav {
+  background-color: #2e8b57;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+nav li {
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+nav li:hover {
+  background-color: #3cb371;
+  border-radius: 4px;
+}
+
+/* Main Content Styles */
+.main {
+  padding: 40px 20px;
+  flex: 1;
+  text-align: center;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Stack the nav items vertically on small screens */
+    align-items: center;
+  }
+
+  .main {
+    padding: 20px 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  footer {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    padding: 10px;
+  }
+
+  nav li {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .main {
+    padding: 20px 5px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  footer {
+    padding: 10px;
+  }
+}
+
+
