@@ -5,21 +5,19 @@
   margin: 20px auto;
   overflow: hidden;
   border-radius: 10px;
-  background-image: linear-gradient(rgb(85, 85, 85), rgba(244, 136, 13, 0.754));
-  backdrop-filter: blur(5px);
+  background: linear-gradient(rgba(255, 255, 255, 0.19), rgba(0, 0, 0, 0.75));
   z-index: 1;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease;
 }
 
 .card-slider:hover {
-  background-image: linear-gradient(rgba(244, 136, 13, 0.754), rgb(85, 85, 85));
-  backdrop-filter: blur(5px);
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.35));
   transform: scale(1.02);
 }
 
 .card-wrapper {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease;
   width: 100%;
 }
 
@@ -30,8 +28,13 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card-image {
@@ -41,7 +44,7 @@
 }
 
 .card-intro {
-  color: #000000;
+  color: #fff;
   margin-top: 15px;
   font-weight: bold;
   text-align: center;
@@ -60,6 +63,7 @@
   cursor: pointer;
   border-radius: 50%;
   z-index: 2;
+  transition: background-color 0.3s ease;
 }
 
 .prev-button {
@@ -76,7 +80,6 @@
 }
 
 /* Responsive Design */
-
 @media (max-width: 768px) {
   .card-slider {
     width: 95%;

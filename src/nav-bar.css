@@ -1,9 +1,10 @@
 /* General Navbar Styles */
 .navbar {
-  background-color: #343635;
+  background-color: #4648473f;
   padding: 5px 10px;
   position: relative;
   z-index: 2;
+  backdrop-filter: blur(3px);
 }
 
 .navbar-container {
@@ -41,7 +42,7 @@
 }
 
 .nav-list li:hover {
-  background-color: #5d5d43;
+  background-color: #7b734edf;
   border-radius: 4px;
 }
 
