@@ -25,6 +25,7 @@ const ImageSlider = ({ images }) => {
     <div className="slider">
       <div className="slider-wrapper">
         <img
+          loading='lazy'
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
           className="slider-image"

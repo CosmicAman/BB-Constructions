@@ -8,6 +8,7 @@ import photo2 from './assets/photo3.jpg';
 import photo3 from './assets/photo4.jpeg';
 import photo4 from './assets/aman.jpeg';
 import photo5 from './assets/amit.jpeg';
+import video from './assets/intro-video.mp4';
 
 const images = [photo, photo1, photo2, photo3];
 
@@ -34,10 +35,32 @@ const MainContent = ({ activePage }) => {
       {activePage === 'home' && (
         <section>
           <div className='home'>
-            <h1>Welcome to BB Constructions</h1>
-            <p>Your trusted construction partner.</p>
+            <h1>Build Brand Constructions</h1>
+            <p>Make your own dream house</p>
           </div>
+          <div className='moto'>
+            <h1 style={{textDecoration: 'underline'}}>बनाएं अपने सपनों का घर वास्तु के अनुसार</h1>
+              <p className='moto-p'>
+                <span>Walkthrough Design</span> | 
+                <span> 3D Design</span> | 
+                <span> Structural Design</span> | 
+                <span> Architectural Design</span> | 
+                <span> Interior Design</span> | 
+                <span> Elevation Design</span>
+              </p>
+          </div>
+
+
           <ImageSlider images={images} />
+          <div className="video-container">
+          <video controls>
+            <source src={video} type="video/mp4" />
+            <source src="./assets/intro-video.webm" type="video/webm" />
+            <source src="./assets/intro-video.ogg" type="video/ogg" />
+            Your browser does not support the video tag.
+          </video>
+            
+            </div>
         </section>
       )}
       {activePage === 'projects' && (
@@ -46,7 +69,7 @@ const MainContent = ({ activePage }) => {
     <div className="projects-gallery">
       {projectImages.map((image, index) => (
         <div key={index} className="project-container">
-          <img src={image} alt={`Project ${index + 1}`} className="project-image" />
+          <img loading='lazy' src={image} alt={`Project ${index + 1}`} className="project-image" />
         </div>
       ))}
     </div>
@@ -66,7 +89,7 @@ const MainContent = ({ activePage }) => {
           <p>We would love to hear from you!</p>
 
           <div className='contact'>
-            <img className='contact-img' src={photo4}></img>
+            <img loading='lazy' className='contact-img' src={photo4}></img>
             <address className='contact-info'>Manish Kumar Bharti | <a style={{color: 'white'}} href='tel:+123456789'>Contact: +123456789</a>  |  
             Email: <a style={{color: 'white'}}href='mailto:info@bbbuilders.com'>info@bbbuilders.com</a> |
             Address: 123 Builder Street, Buildtown, Country
@@ -74,7 +97,7 @@ const MainContent = ({ activePage }) => {
           </div>
 
           <div className='contact'>
-          <img className='contact-img' src={photo5}></img>
+          <img loading = 'lazy' className='contact-img' src={photo5}></img>
           <address className='contact-info'>
             Chota Malik | <a style={{color: 'white'}} href='tel:+123456789'>Contact: +123456789</a> | 
             Email: <a style={{color: 'white'}} href='mailto:info@bbbuilders.com'>info@bbbuilders.com</a> |

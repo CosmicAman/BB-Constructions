@@ -29,7 +29,7 @@ const CardSlider = ({ cards }) => {
       >
         {cards.map((card, index) => (
           <div key={index} className="card">
-            <img src={card.image} alt={`Card ${index + 1}`} className="card-image" />
+            <img loading='lazy' src={card.image} alt={`Card ${index + 1}`} className="card-image" />
             <div className="card-intro">{card.intro}</div>
           </div>
         ))}

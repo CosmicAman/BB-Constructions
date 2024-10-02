@@ -22,7 +22,7 @@
   z-index: -1;
   padding: 3px;
   border-radius: 10px;
-  animation: spin 3s linear infinite;
+  animation: spin 6s linear infinite;
 }
 
 @property --angle {

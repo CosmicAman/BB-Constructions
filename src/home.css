@@ -1,5 +1,8 @@
 .home{
 text-align: center; 
+background-color: #ffffff22;
+width: auto;
+border-radius: 20px;
 }
 
 
@@ -14,6 +17,32 @@ p {
   font-size: 1.1rem;
   line-height: 1.6;
   max-width: 100%;
+}
+
+
+
+.video-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 
@@ -49,7 +78,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4px;
+  padding: 3px;
 }
 
 .project-container:hover {
@@ -117,16 +146,13 @@ p {
 }
 
 
-
-
-
 /* contact */
 
 .contact {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.266);
+  background-color: rgba(255, 255, 255, 0.251);
   border-radius: 10px;
   padding: 20px;
   max-width: 600px;
@@ -145,7 +171,6 @@ p {
   object-fit: cover;
   border-radius: 25px;
   margin-right: 20px;
-  box-shadow: 8px 6px 8px rgba(24, 24, 24, 0.806);
   border: #6d6d6b solid 5px;
 }
 
@@ -181,7 +206,6 @@ p {
 @media (max-width: 480px) {
   .contact {
     padding: 15px;
-    box-shadow: 4px 4px 6px rgba(255, 255, 255, 0.554);
   }
 
   .contact-img {
@@ -191,4 +215,65 @@ p {
   .contact-info {
     font-size: 13px;
   }
+}
+
+
+.moto {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* For smaller screens (mobile) */
+@media (max-width: 600px) {
+  .moto {
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+  }
+
+  .moto p {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .moto {
+    padding: 18px;
+    margin-top: 18px;
+  }
+
+  .moto p {
+    font-size: 18px;
+    padding: 10px;
+  }
+}
+
+/* For larger screens (desktops) */
+@media (min-width: 1025px) {
+  .moto {
+    padding: 25px;
+    margin-top: 25px;
+  }
+
+  .moto p {
+    font-size: 22px;
+    padding: 12px;
+  }
+}
+
+.moto p {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.5;
 }
