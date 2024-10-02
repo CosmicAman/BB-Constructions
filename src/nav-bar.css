@@ -1,7 +1,7 @@
 /* General Navbar Styles */
 .navbar {
-  background-color: #525855;
-  padding: 10px 20px;
+  background-color: #343635;
+  padding: 5px 10px;
   position: relative;
   z-index: 2;
 }
@@ -12,17 +12,13 @@
   align-items: center;
 }
 
-.navbar-logo {
-  color: #fff;
-  font-size: 1.5rem;
-}
 
 .hamburger {
   display: none;
   font-size: 2rem;
-  color: #fff;
+  color: #ff9900;
   cursor: pointer;
-  z-index: 3;
+  z-index: 2;
 }
 
 /* Nav List Styles */
@@ -35,15 +31,17 @@
 }
 
 .nav-list li {
-  color: #fff;
+  color: #ff9900;
   cursor: pointer;
   padding: 10px 15px;
   transition: background-color 0.3s;
   text-align: center;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
 .nav-list li:hover {
-  background-color: #86d3b9;
+  background-color: #5d5d43;
   border-radius: 4px;
 }
 
@@ -58,7 +56,7 @@
     flex-direction: column;
     gap: 10px;
     position: absolute;
-    top: 60px;
+    top: 90px;
     left: 0;
     width: 100%;
     background-color: #4c4f4d;
@@ -73,4 +71,11 @@
   .nav-list li {
     padding: 10px 0;
   }
+}
+
+.logo{
+  height: 80px;
+  width: 80px;
+  margin-top: 0;
+  margin-bottom: 0;
 }

@@ -5,23 +5,28 @@ import CardSlider from './CardSlider';
 import photo from './assets/photo1.jpg';
 import photo1 from './assets/photo2.jpg';
 import photo2 from './assets/photo3.jpg';
+import photo3 from './assets/photo4.jpeg';
+import photo4 from './assets/aman.jpeg';
+import photo5 from './assets/amit.jpeg';
 
-const images = [photo, photo1, photo2];
+const images = [photo, photo1, photo2, photo3];
 
 const cards = [
   {
-    image: photo,
-    intro: 'BB Builders has been in the construction business for over 10 years, delivering quality projects on time.',
+    image: photo5,
+    intro: 'Chota Malik is the best construction engineer in town.',
   },
   {
-    image: photo1,
-    intro: 'Our team of skilled professionals is dedicated to providing top-notch construction services.',
-  },
-  {
-    image: photo2,
-    intro: 'We prioritize client satisfaction and work closely with you to bring your vision to life.',
-  },
+    image:photo4,
+    intro:'Image testing Developers image'
+  }
 ];
+
+
+const projectImages = [
+  photo, photo1, photo2, photo3
+];
+
 
 const MainContent = ({ activePage }) => {
   return (
@@ -36,11 +41,18 @@ const MainContent = ({ activePage }) => {
         </section>
       )}
       {activePage === 'projects' && (
-        <section>
-          <h1>Our Projects</h1>
-          <p>Check out our latest construction projects here.</p>
-        </section>
-      )}
+  <section className="projects-section">
+    <h1>Our Projects</h1>
+    <div className="projects-gallery">
+      {projectImages.map((image, index) => (
+        <div key={index} className="project-container">
+          <img src={image} alt={`Project ${index + 1}`} className="project-image" />
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
       {activePage === 'about' && (
         <section>
           <h1>About Us</h1>

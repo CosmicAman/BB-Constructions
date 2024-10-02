@@ -19,7 +19,7 @@ body {
 
 /* Navbar Styles */
 nav {
-  background-color: #2e8b57;
+  background-color: #278c53;
   padding: 10px 20px;
 }
 
@@ -33,7 +33,7 @@ nav ul {
 }
 
 nav li {
-  color: #fff;
+  color: #f5c103;
   cursor: pointer;
   padding: 10px 15px;
   transition: background-color 0.3s;

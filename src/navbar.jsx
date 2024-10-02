@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './nav-bar.css'; // Import a separate CSS file for styling
+import './nav-bar.css'; 
+import logo from './assets/bb.png';
 
 const Navbar = ({ setActivePage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ const Navbar = ({ setActivePage }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h2 className="navbar-logo">BB Constructions</h2>
+        <img src={logo} className='logo'></img>
         <div className="hamburger" onClick={toggleMenu}>
           ☰
         </div>
