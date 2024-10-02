@@ -60,9 +60,10 @@
     top: 90px;
     left: 0;
     width: 100%;
-    background-color: #4c4f4d;
+    background-color: #010101e8;
     padding: 20px 0;
     text-align: center;
+    backdrop-filter: blur(3px);
   }
 
   .nav-list.nav-list-open {

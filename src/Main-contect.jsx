@@ -67,8 +67,8 @@ const MainContent = ({ activePage }) => {
 
           <div className='contact'>
             <img className='contact-img' src={photo4}></img>
-            <address className='contact-info'>Manish Kuma Bharti | <a href='tel:+123456789'>Contact: +123456789</a>  |  
-            Email: <a href='mailto:info@bbbuilders.com'>info@bbbuilders.com</a> |
+            <address className='contact-info'>Manish Kumar Bharti | <a style={{color: 'white'}} href='tel:+123456789'>Contact: +123456789</a>  |  
+            Email: <a style={{color: 'white'}}href='mailto:info@bbbuilders.com'>info@bbbuilders.com</a> |
             Address: 123 Builder Street, Buildtown, Country
             </address>
           </div>
@@ -76,8 +76,8 @@ const MainContent = ({ activePage }) => {
           <div className='contact'>
           <img className='contact-img' src={photo5}></img>
           <address className='contact-info'>
-            Chota Malik | <a href='tel:+123456789'>Contact: +123456789</a> | 
-            Email: <a href='mailto:info@bbbuilders.com'>info@bbbuilders.com</a> |
+            Chota Malik | <a style={{color: 'white'}} href='tel:+123456789'>Contact: +123456789</a> | 
+            Email: <a style={{color: 'white'}} href='mailto:info@bbbuilders.com'>info@bbbuilders.com</a> |
             Address: 123 Builder Street, Buildtown, Country
           </address>
           </div>
