@@ -17,7 +17,7 @@ const Navbar = ({ setActivePage }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <img src={logo} className='logo'></img>
+        <img src={logo} className='logo' alt='logo' onClick={() => handleMenuClick('home')} ></img>
         <div className="hamburger" onClick={toggleMenu}>
           ☰
         </div>

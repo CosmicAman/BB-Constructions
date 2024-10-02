@@ -42,7 +42,7 @@ const MainContent = ({ activePage }) => {
       )}
       {activePage === 'projects' && (
   <section className="projects-section">
-    <h1>Our Projects</h1>
+    <h1 className='projects'>Our Projects</h1>
     <div className="projects-gallery">
       {projectImages.map((image, index) => (
         <div key={index} className="project-container">
@@ -64,6 +64,23 @@ const MainContent = ({ activePage }) => {
         <section>
           <h1>Contact Us</h1>
           <p>We would love to hear from you!</p>
+
+          <div className='contact'>
+            <img className='contact-img' src={photo4}></img>
+            <address className='contact-info'>Manish Kuma Bharti | <a href='tel:+123456789'>Contact: +123456789</a>  |  
+            Email: <a href='mailto:info@bbbuilders.com'>info@bbbuilders.com</a> |
+            Address: 123 Builder Street, Buildtown, Country
+            </address>
+          </div>
+
+          <div className='contact'>
+          <img className='contact-img' src={photo5}></img>
+          <address className='contact-info'>
+            Chota Malik | <a href='tel:+123456789'>Contact: +123456789</a> | 
+            Email: <a href='mailto:info@bbbuilders.com'>info@bbbuilders.com</a> |
+            Address: 123 Builder Street, Buildtown, Country
+          </address>
+          </div>
         </section>
       )}
     </div>
@@ -72,9 +89,9 @@ const MainContent = ({ activePage }) => {
 
 const styles = {
   main: {
-    padding: '40px',
+    padding: '30px',
     minHeight: '60vh',
-    textAlign: 'center', // Center text for better presentation
+    textAlign: 'center',
   },
 };
 

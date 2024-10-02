@@ -6,6 +6,7 @@ text-align: center;
 h1 {
   color: #ffaa00;
   font-size: 2rem;
+  
 }
 
 p {
@@ -18,6 +19,14 @@ p {
 
 
 /* project */
+
+.projects{
+  text-transform: uppercase;
+  
+
+}
+
+
 
 .projects-section {
   padding: 40px;
@@ -44,10 +53,12 @@ p {
 }
 
 .project-image {
+  border-radius: 10px;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  border:  rgba(168, 163, 163, 0.736) solid 5px;
 }
 
 .project-container:hover .project-image {
@@ -67,4 +78,48 @@ p {
   .project-container {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+}
+
+
+/* contact */
+
+.contact{
+  display: flexbox;
+  background-color: rgba(255, 255, 255, 0.266);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 8px 6px 8px rgba(255, 255, 255, 0.554);
+  transition: transform 0.3s ease-in-out;
+  backdrop-filter: blur(2px);
+}
+
+.contact:hover{
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.05);
+}
+
+.contact-img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 25px;
+  margin-right: 5px;
+  box-shadow: 8px 6px 8px rgba(24, 24, 24, 0.806);
+  border: #6d6d6b solid 5px;
+}
+
+.contact-info{
+  color: black;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: dashed;
+  margin: 0 auto;
+  padding: 2px;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+
 }

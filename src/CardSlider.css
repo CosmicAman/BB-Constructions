@@ -1,29 +1,37 @@
 .card-slider {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 800px;
   margin: 20px auto;
   overflow: hidden;
   border-radius: 10px;
-  background-color: rgb(50, 48, 48);
+  background-image: linear-gradient(rgb(85, 85, 85), rgba(244, 136, 13, 0.754));
   backdrop-filter: blur(5px);
-  
+  z-index: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-slider:hover {
+  background-image: linear-gradient(rgba(244, 136, 13, 0.754), rgb(85, 85, 85));
+  backdrop-filter: blur(5px);
+  transform: scale(1.02);
 }
 
 .card-wrapper {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Smooth transition */
-  width: 100%; /* Ensure the wrapper takes the full width */
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 
 .card {
-  flex: 0 0 100%; /* Each card takes 100% width */
+  flex: 0 0 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 .card-image {
@@ -33,8 +41,9 @@
 }
 
 .card-intro {
-  color: #fff;
+  color: #000000;
   margin-top: 15px;
+  font-weight: bold;
   text-align: center;
   font-size: 1.1rem;
 }
@@ -50,7 +59,7 @@
   padding: 10px;
   cursor: pointer;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .prev-button {
@@ -64,4 +73,44 @@
 .prev-button:hover,
 .next-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .card-slider {
+    width: 95%;
+    margin: 10px auto;
+    transform: none; /* Remove scale effect on smaller devices */
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .card-intro {
+    font-size: 1rem;
+  }
+
+  .prev-button,
+  .next-button {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-slider {
+    width: 100%;
+    margin: 5px auto;
+    border-radius: 5px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .prev-button,
+  .next-button {
+    padding: 6px;
+  }
 }
