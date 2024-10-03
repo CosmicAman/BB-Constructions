@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ImageSlider.css'; // Import CSS for styling
+import './ImageSlider.css'; 
 
 const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -7,7 +7,7 @@ const ImageSlider = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNextSlide();
-    }, 3000); // Change image every 3 seconds
+    }, 3000); // 3 sec main image change
     return () => clearInterval(interval);
   }, [currentIndex]);
 
