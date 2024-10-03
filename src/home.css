@@ -1,6 +1,5 @@
 .home{
 text-align: center; 
-background-color: #ffffff22;
 width: auto;
 border-radius: 20px;
 }
@@ -8,7 +7,8 @@ border-radius: 20px;
 
 h1 {
   color: #ffaa00;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin-top: 20px;
   
 }
 
@@ -219,7 +219,7 @@ p {
 
 
 .moto {
-  margin-top: 20px;
+  margin-top: 30px;
   padding: 20px;
   border-radius: 10px;
   max-width: 90%;
@@ -230,13 +230,13 @@ p {
 /* For smaller screens (mobile) */
 @media (max-width: 600px) {
   .moto {
-    padding: 15px;
-    margin-top: 15px;
+    padding: 30px;
+    margin-top: 20px;
     border-radius: 8px;
   }
 
   .moto p {
-    font-size: 16px;
+    font-size: 12px;
     padding: 8px;
   }
 }
@@ -244,7 +244,7 @@ p {
 /* For medium screens (tablets) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .moto {
-    padding: 18px;
+    padding: 20px;
     margin-top: 18px;
   }
 
@@ -257,8 +257,8 @@ p {
 /* For larger screens (desktops) */
 @media (min-width: 1025px) {
   .moto {
-    padding: 25px;
-    margin-top: 25px;
+    padding: 30px;
+    margin-top: 30px;
   }
 
   .moto p {
