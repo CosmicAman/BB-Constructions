@@ -1,15 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ImageSlider.css'; 
 
 const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sliderIntervalRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    startAutoSlide();
+    return () => stopAutoSlide();
+  }, []); // Run only once when the component mounts
+
+  const startAutoSlide = () => {
+    stopAutoSlide();
+    sliderIntervalRef.current = setInterval(() => {
       goToNextSlide();
-    }, 3000); // 3 sec main image change
-    return () => clearInterval(interval);
-  }, [currentIndex]);
+    }, 3000); // Change image every 3 seconds
+  };
+
+  const stopAutoSlide = () => {
+    if (sliderIntervalRef.current) {
+      clearInterval(sliderIntervalRef.current);
+    }
+  };
 
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -19,6 +31,18 @@ const ImageSlider = ({ images }) => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
+  };
+
+  const handleClickNext = () => {
+    stopAutoSlide();
+    goToNextSlide();
+    startAutoSlide();
+  };
+
+  const handleClickPrev = () => {
+    stopAutoSlide();
+    goToPrevSlide();
+    startAutoSlide();
   };
 
   return (
@@ -31,10 +55,10 @@ const ImageSlider = ({ images }) => {
           className="slider-image"
         />
       </div>
-      <button className="prev-button" onClick={goToPrevSlide}>
+      <button className="prev-button" onClick={handleClickPrev}>
         &#10094;
       </button>
-      <button className="next-button" onClick={goToNextSlide}>
+      <button className="next-button" onClick={handleClickNext}>
         &#10095;
       </button>
     </div>

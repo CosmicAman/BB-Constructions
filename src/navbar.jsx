@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './nav-bar.css'; 
+import './nav-bar.css';
 import logo from './assets/bb.png';
 
 const Navbar = ({ setActivePage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   const handleMenuClick = (page) => {
@@ -17,7 +17,13 @@ const Navbar = ({ setActivePage }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <img src={logo} className='logo' alt='logo' onClick={() => handleMenuClick('home')} ></img>
+        <img
+          loading="lazy"
+          src={logo}
+          className="logo"
+          alt="logo"
+          onClick={() => handleMenuClick('home')}
+        />
         <div className="hamburger" onClick={toggleMenu}>
           ☰
         </div>
@@ -32,4 +38,4 @@ const Navbar = ({ setActivePage }) => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);

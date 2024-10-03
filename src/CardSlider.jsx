@@ -1,15 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import './CardSlider.css'; // Import CSS for styling
+import React, { useState, useEffect, useRef } from 'react';
+import './CardSlider.css';
 
 const CardSlider = ({ cards }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sliderIntervalRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    startAutoSlide();
+    return () => stopAutoSlide();
+  }, []); // Run once when the component mounts
+
+  const startAutoSlide = () => {
+    stopAutoSlide();
+    sliderIntervalRef.current = setInterval(() => {
       goToNextSlide();
     }, 6000); // Change card every 6 seconds
-    return () => clearInterval(interval);
-  }, [currentIndex]);
+  };
+
+  const stopAutoSlide = () => {
+    if (sliderIntervalRef.current) {
+      clearInterval(sliderIntervalRef.current);
+    }
+  };
 
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
@@ -21,11 +33,26 @@ const CardSlider = ({ cards }) => {
     );
   };
 
+  const handleClickNext = () => {
+    stopAutoSlide();
+    goToNextSlide();
+    startAutoSlide();
+  };
+
+  const handleClickPrev = () => {
+    stopAutoSlide();
+    goToPrevSlide();
+    startAutoSlide();
+  };
+
   return (
     <div className="card-slider">
       <div
         className="card-wrapper"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }} // Use transform to slide
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`,
+          transition: 'transform 0.5s ease-in-out',
+        }}
       >
         {cards.map((card, index) => (
           <div key={index} className="card">
@@ -34,10 +61,10 @@ const CardSlider = ({ cards }) => {
           </div>
         ))}
       </div>
-      <button className="prev-button" onClick={goToPrevSlide}>
+      <button className="prev-button" onClick={handleClickPrev}>
         &#10094;
       </button>
-      <button className="next-button" onClick={goToNextSlide}>
+      <button className="next-button" onClick={handleClickNext}>
         &#10095;
       </button>
     </div>
