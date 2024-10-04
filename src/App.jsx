@@ -1,6 +1,7 @@
 import React, { useState, Suspense, lazy } from 'react';
 import './index.css';
 import backgroundVideo from './assets/background.mp4';
+import poster from './assets/poster.jpeg';
 
 //Lazy loading ho raha hai
 const Navbar = lazy(() => import('./navbar'));
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <video className="video-background" autoPlay muted loop>
+      <video className="video-background" autoPlay muted loop poster={poster}>
         <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
