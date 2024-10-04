@@ -21,9 +21,11 @@ body {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -2; /* Lower z-index to place behind everything else */
-  pointer-events: none; /* Prevent interaction with the video */
+  z-index: -2;
+  pointer-events: none;
+  will-change: opacity; /* Optimize rendering performance */
 }
+
 
 .overlay {
   position: fixed;

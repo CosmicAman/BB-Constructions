@@ -9,7 +9,7 @@ const CardSlider = lazy(() => import('./CardSlider'));
 const MainContent = ({ activePage }) => {
   return (
     <div style={styles.main}>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading please wait...</div>}>
         {activePage === 'home' && (
           <section id="home">
             <div className="home">

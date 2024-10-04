@@ -40,11 +40,12 @@ p {
 
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.65rem; 
+    font-weight: bolder;
+    font-size: 1.45rem; 
   }
 
   p {
-    font-size: 0.9rem; /* Adjust paragraph font size for mobile */
+    font-size: 1rem; /* Adjust paragraph font size for mobile */
   }
 
   .home {
