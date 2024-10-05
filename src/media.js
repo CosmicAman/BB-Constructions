@@ -12,11 +12,12 @@ import photo10 from './assets/photo5.jpeg';
 import photo11 from './assets/photo6.jpeg';
 import photo12 from './assets/photo7.jpeg';
 import photo13 from './assets/photo8.jpeg';
+import banner from './assets/banner.jpeg';
 import video1 from './assets/intro-video.mp4';
 
 const MediaResources = {
   Homecard: [
-    photo, photo1, photo2, photo3, photo10, photo11, photo12, photo13
+    photo, photo1, photo2, photo3, photo10, photo11, photo12, photo13,banner
   ],
 
   projectgallery: [

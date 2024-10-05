@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, memo } from 'react';
 import './home.css';
 import MediaResources from './media';
+import banner from './assets/banner.jpeg';
 
 // Lazy load the components
 const ImageSlider = lazy(() => import('./ImageSlider'));
@@ -31,7 +32,7 @@ const MainContent = ({ activePage }) => {
             <ImageSlider images={MediaResources.Homecard.slice(0, 8)} />
 
             <div className="video-container">
-              <video controls preload="none">
+              <video poster={banner} controls preload="none">
                 <source src={MediaResources.video} type="video/mp4" />
                 <source src="./assets/intro-video.webm" type="video/webm" />
                 <source src="./assets/intro-video.ogg" type="video/ogg" />
