@@ -37,7 +37,8 @@
   padding: 10px 15px;
   transition: background-color 0.3s;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
   text-transform: uppercase;
 }
 
@@ -60,7 +61,7 @@
     top: 90px;
     left: 0;
     width: 100%;
-    background-color: #010101e8;
+    background-color: #112d3ae7;
     padding: 20px 0;
     text-align: center;
     backdrop-filter: blur(3px);
@@ -68,10 +69,12 @@
 
   .nav-list.nav-list-open {
     display: flex;
+    
   }
 
   .nav-list li {
     padding: 10px 0;
+    
   }
 }
 

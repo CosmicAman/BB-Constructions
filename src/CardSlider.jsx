@@ -14,7 +14,7 @@ const CardSlider = ({ cards }) => {
     stopAutoSlide();
     sliderIntervalRef.current = setInterval(() => {
       goToNextSlide();
-    }, 6000); // Change card every 6 seconds
+    }, 10000); // Change card every 6 seconds
   };
 
   const stopAutoSlide = () => {

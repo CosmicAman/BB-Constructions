@@ -2,8 +2,8 @@ import photo from './assets/photo1.jpeg';
 import photo1 from './assets/photo2.jpeg';
 import photo2 from './assets/photo3.jpeg';
 import photo3 from './assets/photo4.jpeg';
-import photo4 from './assets/ceo.jpeg';
-import photo5 from './assets/amit.jpeg';
+import photo4 from './assets/ceo.jpg';
+import photo5 from './assets/md.jpg';
 import photo6 from './assets/malik.jpeg';
 import photo7 from './assets/makil1.jpeg';
 import photo8 from './assets/makil2.jpeg';
@@ -14,6 +14,13 @@ import photo12 from './assets/photo7.jpeg';
 import photo13 from './assets/photo8.jpeg';
 import banner from './assets/banner.jpeg';
 import video1 from './assets/intro-video.mp4';
+import sbi from './assets/sbi.png';
+import lic from './assets/lic.png';
+import boi from './assets/boi.png';
+
+
+
+
 
 const MediaResources = {
   Homecard: [
@@ -32,7 +39,15 @@ const MediaResources = {
     photo4,photo5
   ],
 
-  video:[video1]
+  video:[video1],
+
+  brandLogos: [
+    sbi,lic,boi
+  ],
+
+
+
+
 };
 
 export default MediaResources;

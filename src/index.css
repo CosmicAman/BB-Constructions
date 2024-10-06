@@ -85,12 +85,14 @@ nav li:hover {
 
 /* Footer Styles */
 footer {
+  display: flexbox;
   background-color: rgba(48, 48, 48, 0); /* Slight transparency */
   color: #fff;
   text-align: center;
   padding: 20px;
   margin-top: auto;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(3px);
+  background-color: #00000044;
   z-index: 2; /* Ensure footer is above overlay */
 }
 
@@ -126,6 +128,7 @@ footer p {
   }
 
   footer {
+    display: block;
     padding: 15px;
   }
 }
@@ -153,6 +156,7 @@ footer p {
   }
 
   footer {
+    display: flexbox;
     padding: 10px;
   }
 }

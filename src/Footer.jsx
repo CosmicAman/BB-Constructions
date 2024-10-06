@@ -4,7 +4,7 @@ import './index.css';
 const Footer = React.memo(() => {
   return (
     <footer className="footer">
-      <p>© 2024 BB Constructions. All rights reserved.</p>
+      <p>© 2024 Build-Brand Construction. All rights reserved.</p>
       <p>
       Contact:<a href="tel:8434849491"> 8434849491</a> | 
         Email: <a style={{ color: 'white' }} href="mailto:buildbrandconstruction@gmail.com">buildbrandconstruction@gmail.com</a>

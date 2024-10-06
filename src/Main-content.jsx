@@ -3,9 +3,11 @@ import './home.css';
 import MediaResources from './media';
 import banner from './assets/banner.jpeg';
 
+
 // Lazy load the components
 const ImageSlider = lazy(() => import('./ImageSlider'));
 const CardSlider = lazy(() => import('./CardSlider'));
+
 
 const MainContent = ({ activePage }) => {
   return (
@@ -14,7 +16,7 @@ const MainContent = ({ activePage }) => {
         {activePage === 'home' && (
           <section id="home">
             <div className="home fade-in">
-              <h1>Build Brand Constructions</h1>
+              <h1>Build Brand Construction</h1>
               <p>Make your own dream house</p>
             </div>
             <div className="moto fade-in">
@@ -31,6 +33,8 @@ const MainContent = ({ activePage }) => {
 
             <ImageSlider images={MediaResources.Homecard.slice(0, 8)} />
 
+            
+
             <div className="video-container">
               <video poster={banner} controls preload="none">
                 <source src={MediaResources.video} type="video/mp4" />
@@ -39,8 +43,20 @@ const MainContent = ({ activePage }) => {
                 Your browser does not support the video tag.
               </video>
             </div>
+            <div className='partner'>
+              <h1>OUR BANKING PARTNER</h1>
+              <div className='partner-logos'>
+                <img loading="lazy" src={MediaResources.brandLogos[0]} alt="SBI" />
+                <img loading="lazy" src={MediaResources.brandLogos[1]} alt="LIC" />
+                <img loading="lazy" src={MediaResources.brandLogos[2]} alt="BOI" />
+              </div>  
+            </div>
+            
+
           </section>
         )}
+
+         
 
         {activePage === 'projects' && (
           <section id="projects" className="projects-section">
@@ -57,18 +73,34 @@ const MainContent = ({ activePage }) => {
 
         {activePage === 'about' && (
           <section id="about">
-            <h1>About Us</h1>
-            <p>BB Builders is committed to quality construction and client satisfaction.</p>
+            <h1>OUR TEAM</h1>
+            <p>Build Brand Construction is committed to quality construction and client satisfaction.</p>
             <CardSlider cards={[
               {
                 image: MediaResources.aboutphoto[0],
-                intro: 'Manish Kumar Bharti is the best construction engineer in town.',
+                intro: <p><h3 style={{ textAlign: 'center', fontWeight: 'bold',color: 'yellow' }}>Manish Kumar Bharti(CEO)</h3>The dynamic CEO of BuildBrand Construction, a newly established company in the construction industry. Despite being a new player, Manish's innovative approach and commitment to excellence have quickly positioned BuildBrand Construction as a promising name in the sector. His focus on quality and customer satisfaction is paving the way for the company's future growth and success.</p>
+
+                
+                        
+                  
+                ,
               },
               {
                 image: MediaResources.aboutphoto[1],
-                intro: 'Chota Malik is the best architect in town.',
+                intro: <p><h3 style={{ textAlign: 'center', fontWeight: 'bold',color: 'yellow' }}>Amar Chouhan(MD)</h3> The Managing Director of BuildBrand Construction, brings strong leadership and a forward-thinking mindset to the new company. His expertise in managing operations and ensuring efficient project delivery is essential to BuildBrand's rapid emergence as a competitive force in the construction industry. Amar's strategic vision is helping the company build a solid foundation for long-term success.</p>
+                ,
               }
             ]} />
+
+
+              <div className='partner'>
+              <h1>OUR BANKING PARTNER</h1>
+              <div className='partner-logos'>
+                <img loading="lazy" src={MediaResources.brandLogos[0]} alt="SBI" />
+                <img loading="lazy" src={MediaResources.brandLogos[1]} alt="LIC" />
+                <img loading="lazy" src={MediaResources.brandLogos[2]} alt="BOI" />
+              </div>  
+            </div>
           </section>
         )}
 
@@ -80,8 +112,8 @@ const MainContent = ({ activePage }) => {
             <div className="contact">
               <img loading="lazy" className="contact-img" src={MediaResources.contactphoto[0]} alt="Contact Person 1" />
               <address className="contact-info">
-                Manish Kumar Bharti | <a style={{ color: 'white' }} href="tel:8434849491">Contact: 8434849491</a> |
-                Email: <a style={{ color: 'white' }} href="mailto:info@bbbuilders.com">info@bbbuilders.com</a> |
+                Manish Kumar Bharti| Contact: <a style={{ color: 'yellow' }} href="tel:8434849491"> 8434849491</a> |
+                Email: <a style={{ color: 'yellow' }} href="mailto:buildbrandconstruction@gmail.com">buildbrandconstruction@gmail.com</a> |
                 Address: Hirak Road Harina, P.O- Dumra, P.S- Barora, Dhanbad, Jharkhand, 828306
               </address>
             </div>
@@ -89,8 +121,8 @@ const MainContent = ({ activePage }) => {
             <div className="contact">
               <img loading="lazy" className="contact-img" src={MediaResources.contactphoto[1]} alt="Contact Person 2" />
               <address className="contact-info">
-                Chota Malik | <a style={{ color: 'white' }} href="tel:8434849491">Contact: 8434849491</a> |
-                Email: <a style={{ color: 'white' }} href="mailto:info@bbbuilders.com">info@bbbuilders.com</a> |
+                Amar Chouhan | Contact: <a style={{ color: 'yellow' }} href="tel:8434849491"> 8434849491</a> |
+                Email: <a style={{ color: 'yellow' }} href="mailto:buildbrandconstruction@gmail.com">buildbrandconstruction@gmail.com</a> |
                 Address: Hirak Road Harina, P.O- Dumra, P.S- Barora, Dhanbad, Jharkhand, 828306
               </address>
             </div>

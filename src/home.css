@@ -22,6 +22,49 @@ p {
   padding: 0 10px; 
 }
 
+.partner{
+  margin-top: 10%;
+}
+
+
+/* logoes */
+.partner-logos {
+  display: flex; /* Flexbox for horizontal alignment */
+  justify-content: center; /* Center logos horizontally */
+  align-items: center; /* Center logos vertically */
+  flex-wrap: wrap; /* Allow logos to wrap to the next line if necessary */
+  gap: 50px; /* Add space between the logos */
+  padding: 10px; /* Add padding for spacing */
+ border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.091);
+}
+
+.partner-logos img {
+  width: 50px; /* Set a default width */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: contain; /* Keep the entire image visible */
+  transition: transform 0.3s ease; /* Add a subtle zoom effect */
+}
+
+@media (min-width: 768px) {
+  .partner-logos img {
+    width: 100px; /* Increase the size for tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .partner-logos img {
+    width: 120px; /* Increase size for larger screens */
+  }
+}
+
+.partner-logos img:hover {
+  transform: scale(1.5); /* Zoom in slightly on hover for a better visual effect */
+}
+
+
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   h1 {
