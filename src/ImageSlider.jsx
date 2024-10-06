@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './ImageSlider.css'; 
+import './ImageSlider.css';
 
 const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,13 +8,13 @@ const ImageSlider = ({ images }) => {
   useEffect(() => {
     startAutoSlide();
     return () => stopAutoSlide();
-  }, []); // Run only once when the component mounts
+  }, []);
 
   const startAutoSlide = () => {
     stopAutoSlide();
     sliderIntervalRef.current = setInterval(() => {
       goToNextSlide();
-    }, 3000); // Change image every 3 seconds
+    }, 4000); // Change image every 3 seconds
   };
 
   const stopAutoSlide = () => {
@@ -47,13 +47,16 @@ const ImageSlider = ({ images }) => {
 
   return (
     <div className="slider">
-      <div className="slider-wrapper">
-        <img
-          loading='lazy'
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex + 1}`}
-          className="slider-image"
-        />
+      <div className="slider-wrapper" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        {images.map((image, index) => (
+          <img
+            key={index}
+            loading="lazy"
+            src={image}
+            alt={`Slide ${index + 1}`}
+            className="slider-image"
+          />
+        ))}
       </div>
       <button className="prev-button" onClick={handleClickPrev}>
         &#10094;

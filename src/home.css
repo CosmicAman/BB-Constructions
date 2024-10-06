@@ -56,6 +56,29 @@ p {
 
 
 
+/* fade-in animation */
+
+/* Keyframes for Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the fade-in animation */
+.fade-in {
+  animation: fadeIn 2.5s ease-in-out;
+  opacity: 0; /* Start with opacity 0 */
+  animation-fill-mode: forwards; /* Retain final state after animation completes */
+}
+
+
+
 
 .video-container {
   position: relative;

@@ -13,11 +13,11 @@ const MainContent = ({ activePage }) => {
       <Suspense fallback={<div>Loading please wait...</div>}>
         {activePage === 'home' && (
           <section id="home">
-            <div className="home">
+            <div className="home fade-in">
               <h1>Build Brand Constructions</h1>
               <p>Make your own dream house</p>
             </div>
-            <div className="moto">
+            <div className="moto fade-in">
               <h1 style={{ textDecoration: 'underline' }}>बनाएं अपने सपनों का घर वास्तु के अनुसार</h1>
               <p className="moto-p">
                 <span>Walkthrough Design</span> |

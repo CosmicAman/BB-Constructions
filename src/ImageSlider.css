@@ -7,7 +7,7 @@
   overflow: hidden;
   border-radius: 10px;
   z-index: 1;
-  padding: 6px;
+  padding: 2px;
 }
 
 .slider::after,
@@ -17,7 +17,7 @@
   
   height: 100%;
   width: 100%;
-  background-image: conic-gradient(from var(--angle),  rgb(255, 255, 255),rgb(0, 0, 0) , rgb(0, 0, 0) );
+  background-image: conic-gradient(from var(--angle),  rgb(251, 251, 251),rgb(0, 0, 0) , rgb(0, 0, 0) );
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); 
@@ -85,3 +85,5 @@
 .next-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+
