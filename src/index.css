@@ -85,12 +85,12 @@ nav li:hover {
 
 /* Footer Styles */
 footer {
-  background-color: rgba(48, 48, 48, 0.185); /* Slight transparency */
+  background-color: rgba(48, 48, 48, 0); /* Slight transparency */
   color: #fff;
   text-align: center;
   padding: 20px;
   margin-top: auto;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(1px);
   z-index: 2; /* Ensure footer is above overlay */
 }
 
