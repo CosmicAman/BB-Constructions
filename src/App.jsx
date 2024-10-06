@@ -1,6 +1,6 @@
 import React, { useState, Suspense, lazy } from 'react';
 import './index.css';
-import backgroundVideo from './assets/background4.mp4';
+import backgroundVideo from './assets/background2.mp4';
 import poster from './assets/poster.jpeg';
 
 // Lazy loading
