@@ -90,7 +90,7 @@ footer {
   color: #fff;
   text-align: center;
   padding: 20px;
-  margin-top: auto;
+  margin-top: 0;
   backdrop-filter: blur(3px);
   background-color: #00000044;
   z-index: 2; /* Ensure footer is above overlay */

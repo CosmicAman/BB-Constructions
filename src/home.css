@@ -1,3 +1,11 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .home {
   text-align: center;
   width: auto;
@@ -11,6 +19,13 @@ h1 {
   color: #ffaa00;
   font-size: 3rem; 
   margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hindi{
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -22,8 +37,98 @@ p {
   padding: 0 10px; 
 }
 
-.partner{
-  margin-top: 10%;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 5%;
+  padding: 30px;
+  width: 100%;
+}
+
+.hero-images {
+  display: flex;
+  justify-content: center;
+  gap: 50px; /* Space between the image cards */
+  flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+}
+
+.image-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-card img {
+  width: 300px; /* Slightly smaller than A6 width */
+  height: 400px; /* Proportional height to the new width */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  object-fit: cover;
+  margin: 10px;
+}
+
+
+.hero-text {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #fff; /* Text color */
+  background-color: rgba(116, 111, 111, 0.25); /* Optional background for text */
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .image-card img {
+    width: 298px; /* Adjust image size for tablets */
+    height: 421px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-images {
+    flex-direction: column; /* Stack images vertically for mobile */
+    align-items: center;
+  }
+
+  .image-card img {
+    width: 250px; /* Further reduction for mobile devices */
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-card img {
+    width: 200px; /* Smaller width for small mobile screens */
+    height: 280px;
+    margin: 5px; /* Reduced margin for small screens */
+  }
+
+  .hero-text {
+    font-size: 0.9rem; /* Smaller font size for small mobile screens */
+  }
+}
+
+
+
+
+.partner {
+  background-color: #000000cc;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove padding */
+  box-sizing: border-box;
+  position: relative; /* Ensure it is relative to the viewport */
+  overflow-x: hidden; /* Prevent any unwanted horizontal overflow */
 }
 
 
@@ -61,6 +166,84 @@ p {
 .partner-logos img:hover {
   transform: scale(1.5); /* Zoom in slightly on hover for a better visual effect */
 }
+
+
+/* Existing fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s cubic-bezier(0.65, 0, 0.35, 1),
+              transform 2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* New class that will be added when the element is in view */
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-size: 2em; /* Default font size */
+  font-style: normal;
+  margin-bottom: 20px;
+  color: #e9ae25;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .pacifico-regular {
+    font-size: 1.8em; /* Slightly smaller for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .pacifico-regular {
+    font-size: 1.5em; /* Further reduction for mobile devices */
+  }
+}
+
+@media (max-width: 480px) {
+  .pacifico-regular {
+    font-size: 1em; /* Smaller size for small mobile screens */
+  }
+}
+
+
+
+
+.kalam {
+  font-size: 2em;
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #e9ae25;
+  margin-bottom: 5%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .kalam {
+    font-size: 1.8em; /* Slightly smaller for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .kalam{
+    font-size: 1.5em; /* Further reduction for mobile devices */
+  }
+}
+
+@media (max-width: 480px) {
+  .kalam {
+    font-size: 1em; /* Smaller size for small mobile screens */
+    margin-bottom: 12%;
+  }
+}
+
+
+
+
 
 
 
@@ -114,7 +297,7 @@ p {
 }
 
 /* Apply the fade-in animation */
-.fade-in {
+.fade-head {
   animation: fadeIn 2.5s ease-in-out;
   opacity: 0; /* Start with opacity 0 */
   animation-fill-mode: forwards; /* Retain final state after animation completes */
