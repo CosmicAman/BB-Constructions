@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useRef, memo } from 'react';
+import React, { lazy, Suspense, useEffect, useRef, memo, useState } from 'react';
 import './home.css';
 import MediaResources from './media';
 import banner from './assets/banner.jpeg';
@@ -9,15 +9,14 @@ const CardSlider = lazy(() => import('./CardSlider'));
 
 const MainContent = ({ activePage }) => {
   const homeSectionRef = useRef(null); 
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const fadeInOnScroll = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('fade-in-visible');
-          // Remove the observer disconnection to allow re-triggering on re-entry
         } else {
-          // Optionally remove the fade-in-visible when out of view, to trigger the animation again
           entry.target.classList.remove('fade-in-visible');
         }
       });
@@ -27,11 +26,19 @@ const MainContent = ({ activePage }) => {
       threshold: 0.1,
     });
 
-    const fadeInElements = document.querySelectorAll('.fade-in');
-    fadeInElements.forEach((el) => observer.observe(el));
+    // Observe after all images are loaded
+    if (imagesLoaded) {
+      const fadeInElements = document.querySelectorAll('.fade-in');
+      fadeInElements.forEach((el) => observer.observe(el));
+    }
 
     return () => observer.disconnect(); // Clean up observer on component unmount
-  }, [activePage]); // Re-run this effect whenever activePage changes
+  }, [activePage, imagesLoaded]); // Re-run this effect whenever activePage or imagesLoaded changes
+
+  // Callback to check if all images are loaded
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
 
   return (
     <div style={styles.main}>
@@ -70,11 +77,21 @@ const MainContent = ({ activePage }) => {
                 <h1>COMPANY EXECUTIVES</h1>
                 <div className="hero-images">
                   <div className="image-card">
-                    <img loading="lazy" src={MediaResources.aboutphoto[0]} alt="First Image" />
+                    <img 
+                      loading="lazy" 
+                      src={MediaResources.aboutphoto[0]} 
+                      alt="Manish Kumar Bharti (C.E.O)" 
+                      onLoad={handleImageLoad}  // Call when image loads
+                    />
                     <p className="hero-text">Manish Kumar Bharti (C.E.O)</p>
                   </div>
                   <div className="image-card">
-                    <img loading="lazy" src={MediaResources.aboutphoto[1]} alt="Second Image" />
+                    <img 
+                      loading="lazy" 
+                      src={MediaResources.aboutphoto[1]} 
+                      alt="Amar Chouhan(M.D)" 
+                      onLoad={handleImageLoad}  // Call when image loads
+                    />
                     <p className="hero-text">Amar Chouhan(M.D)</p>
                   </div>
                 </div>
@@ -86,9 +103,24 @@ const MainContent = ({ activePage }) => {
 
               <h1>OUR BANKING PARTNER</h1>
               <div className='partner-logos'>
-                <img loading="lazy" src={MediaResources.brandLogos[0]} alt="SBI" />
-                <img loading="lazy" src={MediaResources.brandLogos[1]} alt="LIC" />
-                <img loading="lazy" src={MediaResources.brandLogos[2]} alt="BOI" />
+                <img 
+                  loading="lazy" 
+                  src={MediaResources.brandLogos[0]} 
+                  alt="SBI"
+                  onLoad={handleImageLoad}  // Call when image loads
+                />
+                <img 
+                  loading="lazy" 
+                  src={MediaResources.brandLogos[1]} 
+                  alt="LIC"
+                  onLoad={handleImageLoad}  // Call when image loads
+                />
+                <img 
+                  loading="lazy" 
+                  src={MediaResources.brandLogos[2]} 
+                  alt="BOI"
+                  onLoad={handleImageLoad}  // Call when image loads
+                />
               </div>  
             </div>
           </section>
