@@ -83,7 +83,7 @@ const MainContent = ({ activePage }) => {
         observer.unobserve(partnerSectionRef.current);
       }
     };
-  }, []);
+  }, [activePage]); // Observe changes when the active page changes
 
   return (
     <div style={styles.main}>
