@@ -4,14 +4,51 @@ import MediaResources from './media';
 import banner from './assets/banner.jpeg';
 
 const ImageSlider = lazy(() => import('./ImageSlider'));
-
+const CardSlider = lazy(() => import('./CardSlider'));
 const MainContent = ({ activePage }) => {
   const homeSectionRef = useRef(null);
   const partnerSectionRef = useRef(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [isScrollEnabled, setIsScrollEnabled] = useState(false);
 
-  // Effect to observe scrolling
+  useEffect(() => {
+    const fadeInOnScroll = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-visible');
+        } else {
+          entry.target.classList.remove('fade-in-visible');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(fadeInOnScroll, {
+      threshold: 0.1,
+    });
+
+    if (imagesLoaded) {
+      const fadeInElements = document.querySelectorAll('.fade-in');
+      fadeInElements.forEach((el) => observer.observe(el));
+    }
+
+    return () => observer.disconnect();
+  }, [activePage, imagesLoaded]);
+
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0 && partnerSectionRef.current) {
+        partnerSectionRef.current.scrollTop = 0; // Reset scroll to top
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
@@ -39,26 +76,7 @@ const MainContent = ({ activePage }) => {
     };
   }, [activePage]); // Observe changes when the active page changes
 
-  // Load images
-  const handleImageLoad = () => {
-    if (!imagesLoaded) {
-      setImagesLoaded(true);
-    }
-  };
-
-  // Reset scroll position on the home section
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0 && partnerSectionRef.current) {
-        partnerSectionRef.current.scrollTop = 0; // Reset scroll to top
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Ensure scrolling is disabled until 70% of the section is visible
+  // Trigger the observer initially
   useEffect(() => {
     if (partnerSectionRef.current) {
       partnerSectionRef.current.style.overflowY = 'hidden'; // Set initial overflow
