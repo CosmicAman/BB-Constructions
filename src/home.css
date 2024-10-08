@@ -172,8 +172,8 @@ p {
 .fade-in {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 2s cubic-bezier(0.65, 0, 0.35, 1),
-              transform 2s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: opacity 1.5s cubic-bezier(0.65, 0, 0.35, 1),
+              transform 1.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 /* New class that will be added when the element is in view */
