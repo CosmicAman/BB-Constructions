@@ -121,7 +121,6 @@ p {
   background-color: #000000cc;
   width: 100vw; /* Full viewport width */
   height: 100vh; /* Full viewport height */
-  flex-direction: column;
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
   margin: 0; /* Remove any margin */
@@ -140,7 +139,7 @@ p {
   flex-wrap: wrap; /* Allow logos to wrap to the next line if necessary */
   gap: 50px; /* Add space between the logos */
   padding: 10px; /* Add padding for spacing */
- border-radius: 100px;
+  border-radius: 100px;
   background-color: rgba(0, 0, 0, 0.091);
 }
 
