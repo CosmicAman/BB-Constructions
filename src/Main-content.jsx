@@ -4,6 +4,7 @@ import MediaResources from './media';
 import banner from './assets/banner.jpeg';
 
 const ImageSlider = lazy(() => import('./ImageSlider'));
+const CardSlider = lazy(() => import('./CardSlider'));
 
 const MainContent = ({ activePage }) => {
   const homeSectionRef = useRef(null);
