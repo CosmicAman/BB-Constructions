@@ -4,14 +4,12 @@ import MediaResources from './media';
 import banner from './assets/banner.jpeg';
 
 const ImageSlider = lazy(() => import('./ImageSlider'));
-const CardSlider = lazy(() => import('./CardSlider'));
 
 const MainContent = ({ activePage }) => {
   const homeSectionRef = useRef(null);
   const partnerSectionRef = useRef(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0); // To track scroll position
-  const [isScrollEnabled, setIsScrollEnabled] = useState(false); // To manage scroll state
+  const [isScrollEnabled, setIsScrollEnabled] = useState(false);
 
   useEffect(() => {
     const fadeInOnScroll = (entries, observer) => {
@@ -42,21 +40,14 @@ const MainContent = ({ activePage }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Reset partner section scroll if we're at the top of the page
-      if (currentScrollY === 0 && partnerSectionRef.current) {
+      if (window.scrollY === 0 && partnerSectionRef.current) {
         partnerSectionRef.current.scrollTop = 0; // Reset scroll to top
       }
-
-      // Update scroll position
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -64,10 +55,10 @@ const MainContent = ({ activePage }) => {
 
       // Enable scrolling when 70% of the partner section is in view
       if (entry.intersectionRatio >= 0.7) {
-        setIsScrollEnabled(true); // Allow scrolling
+        setIsScrollEnabled(true);
         partnerSectionRef.current.style.overflowY = 'scroll'; // Enable scrolling
       } else {
-        setIsScrollEnabled(false); // Disallow scrolling
+        setIsScrollEnabled(false);
         partnerSectionRef.current.style.overflowY = 'hidden'; // Ensure scroll is disabled
       }
     }, {
@@ -84,6 +75,33 @@ const MainContent = ({ activePage }) => {
       }
     };
   }, [activePage]); // Observe changes when the active page changes
+
+  // Trigger the observer initially
+  useEffect(() => {
+    if (partnerSectionRef.current) {
+      partnerSectionRef.current.style.overflowY = 'hidden'; // Set initial overflow
+      const observer = new IntersectionObserver((entries) => {
+        const [entry] = entries;
+
+        // Enable scrolling when 70% of the partner section is in view
+        if (entry.intersectionRatio >= 0.7) {
+          setIsScrollEnabled(true);
+          partnerSectionRef.current.style.overflowY = 'scroll'; // Enable scrolling
+        } else {
+          setIsScrollEnabled(false);
+          partnerSectionRef.current.style.overflowY = 'hidden'; // Ensure scroll is disabled
+        }
+      }, {
+        threshold: 0.7, // Trigger when 70% of the partner section is visible
+      });
+
+      observer.observe(partnerSectionRef.current);
+
+      return () => {
+        observer.unobserve(partnerSectionRef.current);
+      };
+    }
+  }, []);
 
   return (
     <div style={styles.main}>
