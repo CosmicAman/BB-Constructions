@@ -53,8 +53,8 @@ const MainContent = ({ activePage }) => {
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
 
-      // Enable scrolling when 70% of the partner section is in view
-      if (entry.intersectionRatio >= 0.7) {
+      // Enable scrolling when 90% of the partner section is in view
+      if (entry.intersectionRatio >= 0.9) {
         setIsScrollEnabled(true);
         partnerSectionRef.current.style.overflowY = 'scroll'; // Enable scrolling
       } else {
@@ -62,7 +62,7 @@ const MainContent = ({ activePage }) => {
         partnerSectionRef.current.style.overflowY = 'hidden'; // Ensure scroll is disabled
       }
     }, {
-      threshold: 0.7, // Trigger when 70% of the partner section is visible
+      threshold: 0.9, // Trigger when 90% of the partner section is visible
     });
 
     if (partnerSectionRef.current) {
