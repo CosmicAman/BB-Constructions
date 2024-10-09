@@ -297,7 +297,7 @@ p {
 
 /* Apply the fade-in animation */
 .fade-head {
-  animation: fadeIn 2.5s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
   opacity: 0; /* Start with opacity 0 */
   animation-fill-mode: forwards; /* Retain final state after animation completes */
 }

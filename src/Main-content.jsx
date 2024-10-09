@@ -1,113 +1,43 @@
-import React, { lazy, Suspense, useEffect, useRef, memo, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useRef, memo } from 'react';
 import './home.css';
 import MediaResources from './media';
 import banner from './assets/banner.jpeg';
 
+// Lazy load the components
 const ImageSlider = lazy(() => import('./ImageSlider'));
 const CardSlider = lazy(() => import('./CardSlider'));
+
 const MainContent = ({ activePage }) => {
-  const homeSectionRef = useRef(null);
-  const partnerSectionRef = useRef(null);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [isScrollEnabled, setIsScrollEnabled] = useState(false);
+  const homeSectionRef = useRef(null); 
 
   useEffect(() => {
     const fadeInOnScroll = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('fade-in-visible');
+          // Remove the observer disconnection to allow re-triggering on re-entry
         } else {
+          // Optionally remove the fade-in-visible when out of view, to trigger the animation again
           entry.target.classList.remove('fade-in-visible');
         }
       });
     };
 
     const observer = new IntersectionObserver(fadeInOnScroll, {
-      threshold: 0.1,
+      threshold: 0.01,
     });
 
-    if (imagesLoaded) {
-      const fadeInElements = document.querySelectorAll('.fade-in');
-      fadeInElements.forEach((el) => observer.observe(el));
-    }
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    fadeInElements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
-  }, [activePage, imagesLoaded]);
-
-  const handleImageLoad = () => {
-    setImagesLoaded(true);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0 && partnerSectionRef.current) {
-        partnerSectionRef.current.scrollTop = 0; // Reset scroll to top
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-
-      // Enable scrolling when 90% of the partner section is in view
-      if (entry.intersectionRatio >= 0.9) {
-        setIsScrollEnabled(true);
-        partnerSectionRef.current.style.overflowY = 'scroll'; // Enable scrolling
-      } else {
-        setIsScrollEnabled(false);
-        partnerSectionRef.current.style.overflowY = 'hidden'; // Ensure scroll is disabled
-      }
-    }, {
-      threshold: 0.9, // Trigger when 90% of the partner section is visible
-    });
-
-    if (partnerSectionRef.current) {
-      observer.observe(partnerSectionRef.current);
-    }
-
-    return () => {
-      if (partnerSectionRef.current) {
-        observer.unobserve(partnerSectionRef.current);
-      }
-    };
-  }, [activePage]); // Observe changes when the active page changes
-
-  // Trigger the observer initially
-  useEffect(() => {
-    if (partnerSectionRef.current) {
-      partnerSectionRef.current.style.overflowY = 'hidden'; // Set initial overflow
-      const observer = new IntersectionObserver((entries) => {
-        const [entry] = entries;
-
-        // Enable scrolling when 70% of the partner section is in view
-        if (entry.intersectionRatio >= 0.7) {
-          setIsScrollEnabled(true);
-          partnerSectionRef.current.style.overflowY = 'scroll'; // Enable scrolling
-        } else {
-          setIsScrollEnabled(false);
-          partnerSectionRef.current.style.overflowY = 'hidden'; // Ensure scroll is disabled
-        }
-      }, {
-        threshold: 0.7, // Trigger when 70% of the partner section is visible
-      });
-
-      observer.observe(partnerSectionRef.current);
-
-      return () => {
-        observer.unobserve(partnerSectionRef.current);
-      };
-    }
-  }, []);
+    return () => observer.disconnect(); // Clean up observer on component unmount
+  }, [activePage]); // Re-run this effect whenever activePage changes
 
   return (
     <div style={styles.main}>
       <Suspense fallback={<div>Loading please wait...</div>}>
         {activePage === 'home' && (
-          <section id="home" ref={homeSectionRef}>
+          <section id="home">
             <div className="home fade-head">
               <h1>Build Brand Construction</h1>
               <p>Make your own dream house</p>
@@ -135,60 +65,31 @@ const MainContent = ({ activePage }) => {
               </video>
             </div>
 
-            <div className="partner fade-in" ref={partnerSectionRef} style={{ overflowY: 'hidden' }}>
+            <div className='partner fade-in'>
               <div className="hero">
                 <h1>COMPANY EXECUTIVES</h1>
                 <div className="hero-images">
                   <div className="image-card">
-                    <img
-                      loading="lazy"
-                      src={MediaResources.aboutphoto[0]}
-                      alt="Manish Kumar Bharti (C.E.O)"
-                      onLoad={handleImageLoad}
-                    />
+                    <img loading="lazy" src={MediaResources.aboutphoto[0]} alt="Manish Kumar Bharti (C.E.O)" />
                     <p className="hero-text">Manish Kumar Bharti (C.E.O)</p>
                   </div>
                   <div className="image-card">
-                    <img
-                      loading="lazy"
-                      src={MediaResources.aboutphoto[1]}
-                      alt="Amar Chouhan(M.D)"
-                      onLoad={handleImageLoad}
-                    />
+                    <img loading="lazy" src={MediaResources.aboutphoto[1]} alt="Amar Chouhan(M.D)" />
                     <p className="hero-text">Amar Chouhan(M.D)</p>
                   </div>
                 </div>
               </div>
 
-              <p className="pacifico-regular">
-                “Your dream home, built with our quality and innovation. We don't just construct buildings; we build trust and lasting foundations.”
-              </p>
+              <p className='pacifico-regular '>“Your dream home, built with our quality and innovation. We don't just construct buildings; we build trust and lasting foundations.„</p>
 
-              <p className="kalam">
-                “आपके सपनों का घर, हमारी गुणवत्ता और नवाचार के साथ। हम सिर्फ इमारतें नहीं, विश्वास और स्थायित्व का निर्माण करते हैं।„
-              </p>
+              <p className='kalam'>“आपके सपनों का घर, हमारी गुणवत्ता और नवाचार के साथ। हम सिर्फ इमारतें नहीं, विश्वास और स्थायित्व का निर्माण करते हैं।„</p>
 
               <h1>OUR BANKING PARTNER</h1>
-              <div className="partner-logos">
-                <img
-                  loading="lazy"
-                  src={MediaResources.brandLogos[0]}
-                  alt="SBI"
-                  onLoad={handleImageLoad}
-                />
-                <img
-                  loading="lazy"
-                  src={MediaResources.brandLogos[1]}
-                  alt="LIC"
-                  onLoad={handleImageLoad}
-                />
-                <img
-                  loading="lazy"
-                  src={MediaResources.brandLogos[2]}
-                  alt="BOI"
-                  onLoad={handleImageLoad}
-                />
-              </div>
+              <div className='partner-logos'>
+                <img loading="lazy" src={MediaResources.brandLogos[0]} alt="SBI" />
+                <img loading="lazy" src={MediaResources.brandLogos[1]} alt="LIC" />
+                <img loading="lazy" src={MediaResources.brandLogos[2]} alt="BOI" />
+              </div>  
             </div>
           </section>
         )}
