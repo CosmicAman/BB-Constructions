@@ -37,6 +37,33 @@ p {
   padding: 0 10px; 
 }
 
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  height: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side,#000 95%,#0000) 35% 35%/6px 6px no-repeat
+    #a2a0a0;
+  animation: l5 3s infinite;
+}
+@keyframes l5 {
+  0%,11%   {background-position:35% 35%}
+  14%,36%  {background-position:65% 35%}
+  38%,61%  {background-position:65% 65%}
+  64%,86%  {background-position:35% 65%}
+  88%,100% {background-position:35% 35%}
+}
+
+
+
 
 .hero {
   display: flex;
@@ -90,7 +117,7 @@ p {
 
 @media (max-width: 768px) {
   .hero-images {
-    flex-direction: column; /* Stack images vertically for mobile */
+    flex-direction: row; /* Stack images vertically for mobile */
     align-items: center;
   }
 
@@ -118,7 +145,7 @@ p {
 .partner {
   background-color: #000000cc;
   width: 100vw; /* Full viewport width */
-  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+  min-height: auto; /* Ensure it takes at least the full viewport height */
   display: flex;
   flex-direction: column;
   justify-content: center; /* Center content vertically */
@@ -129,9 +156,246 @@ p {
   overflow: hidden; /* Ensure no horizontal overflow */
 }
 
-.partner h1 {
-  margin-bottom: 20px; /* Add spacing below the headings */
+.partner1{
+  background-color: #9e9b9bb0;
+  width: auto; /* Full viewport width */
+  min-height: auto; /* Ensure it takes at least the full viewport height */
+  margin: 0; /* Remove any margin */
+  padding: 20px; /* Add padding for spacing */
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure no horizontal overflow */
 }
+
+.partner1 p{
+  padding: 0;
+  margin: 0;
+  color: #000;
+}
+
+.partner1 h1{
+  color: #000;
+  text-decoration: underline;
+
+}
+
+/* Container Styling */
+.bitter {
+  font-family: "Bitter", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  margin-bottom: 2%;
+}
+
+.info {
+  margin: 2% auto; /* Center the element horizontally */
+  padding: 15px; /* Reduced padding for a lighter feel */
+  background-color: rgba(230, 230, 124, 0.41); /* Simple light background */
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow */
+  max-width: 900px; /* Set a max width for larger screens */
+  width: 100%; /* Responsive width for smaller screens */
+}
+
+.info:hover {
+  transform: translateY(-8px); /* Slight lift on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Info Detail Styling */
+.info-detail {
+  font-size: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between elements */
+  color: #333;
+}
+
+/* Text Animation */
+.info-detail span {
+  opacity: 0;
+  animation: fadeIn 1.4s ease forwards;
+  animation-delay: calc(0.15s * var(--i)); /* Staggered animation for each span */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #262525;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    transform: translateY(10px); /* Start slightly below */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* End at normal position */
+    opacity: 1;
+  }
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+  .info {
+    padding: 20px; /* Adjust padding for medium screens */
+  }
+
+  .info-detail {
+    margin-bottom: 5%;
+    font-size: 1.3em; /* Slightly smaller font size */
+  }
+
+  .info-detail span {
+    font-size: 1.1rem; /* Adjust span font size */
+  }
+}
+
+@media (max-width: 768px) {
+  .info {
+    padding: 15px; /* Less padding for smaller screens */
+    margin: 2% 0; /* Slightly reduce margin */
+  }
+
+  .info-detail {
+    margin-bottom: 5%;
+    font-size: 1.2em; /* Further reduce font size */
+  }
+
+  .info-detail span {
+    font-size: 1rem; /* Adjust span font size */
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .bitter{
+    margin-bottom: 5%;
+  }
+
+  .info {
+   
+    padding: 10px; /* Minimal padding for mobile screens */
+  }
+
+  .info-detail {
+    margin-bottom: 5%;
+    font-size: 1.1em; /* Smallest font size */
+  }
+
+  .info-detail span {
+    font-size: 0.9rem; /* Smallest span font size */
+    padding-left: 10px; /* Adjust padding for mobile */
+  }
+}
+
+
+
+
+
+
+
+
+
+.play {
+  border-radius: 10px;
+  background: linear-gradient(333deg, rgba(228, 227, 13, 1) 0%, rgba(253, 67, 45, 1) 100%);
+  transform: perspective(900px) rotateX(30deg) scale(1);
+  box-shadow: 0px 20px 100px rgba(0, 0, 0, 0.3); /* Softer shadow */
+  transition: 0.8s ease all;
+  padding: 20px; /* Reduced padding */
+  margin: 5% auto 8%; /* Centered with margin-top and margin-bottom */
+  text-align: center;
+  max-width: 900px; /* Maximum width to reduce size */
+  width: 100%; /* Ensure it is responsive */
+  border: red solid 2px;
+}
+
+
+
+
+
+.play h1{
+  color: rgba(44, 44, 44, 0.939);
+  text-decoration: underline;
+  font-family: "Pacifico", cursive;
+  font-size: 2em; /* Default font size */
+  font-style: normal;
+  margin-bottom: 20px;
+
+}
+
+.play img {
+  width: 100%; /* Make image responsive */
+  max-width: 300px; /* Set a max width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  margin: 10px;
+}
+
+.play:hover {
+  transform: rotate(0deg) scale(1) translateY(10px);
+}
+
+/* Responsive adjustments for large screens */
+@media (max-width: 1024px) {
+  .play {
+    transform: perspective(800px) rotateX(45deg) scale(0.95);
+    box-shadow: 0px 15px 80px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+   
+  }
+
+  .play img {
+    max-width: 280px; /* Slightly smaller for large screens */
+  }
+
+  .play:hover {
+    transform: rotate(0deg) scale(1) translateY(8px);
+  }
+}
+
+/* Responsive adjustments for medium screens */
+@media (max-width: 768px) {
+  .play {
+    transform: perspective(700px) rotateX(40deg) scale(0.9);
+    box-shadow: 0px 12px 60px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+  }
+
+  .play img {
+    max-width: 250px; /* Adjusted for smaller screens */
+  }
+
+  .play:hover {
+    transform: rotate(0deg) scale(1) translateY(6px);
+  }
+}
+
+/* Responsive adjustments for small screens (mobile) */
+@media (max-width: 480px) {
+  .play {
+    transform: perspective(600px) rotateX(40deg) scale(0.95);
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin-bottom: 10%;
+  }
+
+  .play img {
+    max-width: 180px; /* Optimized for mobile */
+  }
+
+  .play:hover {
+    transform: rotate(0deg) scale(1) translateY(5px);
+  }
+}
+
+
+
+
 
 
 /* logoes */
@@ -140,7 +404,7 @@ p {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 30px; /* Space between the logos */
+  gap: 80px; /* Space between the logos */
   margin-top: 20px; 
 }
 

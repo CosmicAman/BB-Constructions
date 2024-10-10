@@ -92,7 +92,7 @@ footer {
   padding: 20px;
   margin-top: 0;
   backdrop-filter: blur(3px);
-  background-color: #00000044;
+  background-color: #0000008a;
   z-index: 2; /* Ensure footer is above overlay */
 }
 
