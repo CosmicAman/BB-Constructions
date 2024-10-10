@@ -16,20 +16,25 @@ const MainContent = ({ activePage }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            console.log("Info Detail is now visible"); // Debugging log
             setIsInfoDetailVisible(true);
             observer.unobserve(entry.target); // Stop observing once the element is in view
+          } else {
+            console.log("Info Detail is not visible yet"); // Debugging log
           }
         });
       },
       {
         root: null, // Use the viewport as the root
         rootMargin: '0px',
-        threshold: 0.1, // Trigger when 10% of the element is in view
+        threshold: 0, // Trigger as soon as any part of the element is visible
       }
     );
 
     if (infoDetailRef.current) {
-      observer.observe(infoDetailRef.current);
+      setTimeout(() => {
+        observer.observe(infoDetailRef.current);
+      }, 500); // Delay observing by 500ms to ensure rendering is complete
     }
 
     return () => {
@@ -77,30 +82,27 @@ const MainContent = ({ activePage }) => {
               </video>
             </div>
             
-                  <div loading="lazy" className='partner'>
-                    <div className="hero">
-                      <h1>COMPANY EXECUTIVES</h1>
-                      <div className="hero-images">
-                        <div className="image-card">
-                          <img loading="lazy" src={MediaResources.aboutphoto[0]} alt="Manish Kumar Bharti (C.E.O)" />
-                          <p className="hero-text">Manish Kumar Bharti (C.E.O)</p>
-                        </div>
-                        <div className="image-card">
-                          <img loading="lazy" src={MediaResources.aboutphoto[1]} alt="Amar Chouhan(M.D)" />
-                          <p className="hero-text">Amar Chouhan(M.D)</p>
-                        </div>
-                        <p className="pacifico-regular">
-                          “Your dream home, built with our quality and innovation. We don't just construct buildings; we build trust and lasting foundations.”
-                        </p>
-                        <p className="kalam">
-                          “आपके सपनों का घर, हमारी गुणवत्ता और नवाचार के साथ। हम सिर्फ इमारतें नहीं, विश्वास और स्थायित्व का निर्माण करते हैं।„
-                        </p>
-                      </div>
-                    </div>
-
-                  
+            <div loading="lazy" className='partner'>
+              <div className="hero">
+                <h1>COMPANY EXECUTIVES</h1>
+                <div className="hero-images">
+                  <div className="image-card">
+                    <img loading="lazy" src={MediaResources.aboutphoto[0]} alt="Manish Kumar Bharti (C.E.O)" />
+                    <p className="hero-text">Manish Kumar Bharti (C.E.O)</p>
                   </div>
-                   
+                  <div className="image-card">
+                    <img loading="lazy" src={MediaResources.aboutphoto[1]} alt="Amar Chouhan(M.D)" />
+                    <p className="hero-text">Amar Chouhan(M.D)</p>
+                  </div>
+                  <p className="pacifico-regular">
+                    “Your dream home, built with our quality and innovation. We don't just construct buildings; we build trust and lasting foundations.”
+                  </p>
+                  <p className="kalam">
+                    “आपके सपनों का घर, हमारी गुणवत्ता और नवाचार के साथ। हम सिर्फ इमारतें नहीं, विश्वास और स्थायित्व का निर्माण करते हैं।„
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div loading="lazy" className='partner1'>
               <div className='info'>
@@ -109,30 +111,30 @@ const MainContent = ({ activePage }) => {
                   {isInfoDetailVisible ? (
                     <>
                       <span>Walkthrough Design</span>
-                      <span> 3D Design</span>
-                      <span> Structural Design</span>
-                      <span> Architectural Design</span>
-                      <span> Interior Design</span>
-                      <span> Elevation Design</span>
+                      <span>3D Design</span>
+                      <span>Structural Design</span>
+                      <span>Architectural Design</span>
+                      <span>Interior Design</span>
+                      <span>Elevation Design</span>
                     </>
                   ) : (
                     <p className='loader'></p>
                   )}
                 </div>
-               
               </div>
-              <div className='play'>
-                  <h1>From Ceo's Desk</h1>
-                  <img loading="lazy" src={MediaResources.aboutphoto[0]} alt="CEO"></img>
-                  <p>आपका हार्दिक स्वागत है! Build Brand Construction की पूरी टीम आपके सपनों का घर बनाने के लिए समर्पित है। हम समझते हैं कि घर सिर्फ ईंट-पत्थर से नहीं बनता, उसमें आपके सपने, आपकी मेहनत और आपकी भावनाएँ भी शामिल होती हैं। इसलिए, हम पूरी ईमानदारी और गुणवत्ता के साथ काम करते हैं, ताकि आप अपने सपनों के घर में सुकून और खुशी महसूस कर सकें।.</p>
-                </div>
 
-              <h1 style={{color:"orange"}}>OUR BANKING PARTNER</h1>
-                    <div loading="lazy" className='partner-logos'>
-                      <img loading="lazy" src={MediaResources.brandLogos[0]} alt="SBI" />
-                      <img loading="lazy" src={MediaResources.brandLogos[1]} alt="LIC" />
-                      <img loading="lazy" src={MediaResources.brandLogos[2]} alt="BOI" />
-                    </div>
+              <div className='play'>
+                <h1>From Ceo's Desk</h1>
+                <img loading="lazy" src={MediaResources.aboutphoto[0]} alt="CEO"></img>
+                <p>आपका हार्दिक स्वागत है! Build Brand Construction की पूरी टीम आपके सपनों का घर बनाने के लिए समर्पित है। हम समझते हैं कि घर सिर्फ ईंट-पत्थर से नहीं बनता, उसमें आपके सपने, आपकी मेहनत और आपकी भावनाएँ भी शामिल होती हैं। इसलिए, हम पूरी ईमानदारी और गुणवत्ता के साथ काम करते हैं, ताकि आप अपने सपनों के घर में सुकून और खुशी महसूस कर सकें।</p>
+              </div>
+
+              <h1 style={{ color: "orange" }}>OUR BANKING PARTNER</h1>
+              <div loading="lazy" className='partner-logos'>
+                <img loading="lazy" src={MediaResources.brandLogos[0]} alt="SBI" />
+                <img loading="lazy" src={MediaResources.brandLogos[1]} alt="LIC" />
+                <img loading="lazy" src={MediaResources.brandLogos[2]} alt="BOI" />
+              </div>
             </div>
           </section>
         )}
@@ -176,16 +178,7 @@ const MainContent = ({ activePage }) => {
               <address className="contact-info">
                 Manish Kumar Bharti | Contact: <a style={{ color: 'yellow' }} href="tel:8434849491">8434849491</a> |
                 Email: <a style={{ color: 'yellow' }} href="mailto:buildbrandconstruction@gmail.com">buildbrandconstruction@gmail.com</a> |
-                Address: Hirak Road Harina, P.O- Dumra, P.S- Barora, Dhanbad, Jharkhand, 828306
-              </address>
-            </div>
-
-            <div className="contact">
-              <img loading="lazy" className="contact-img" src={MediaResources.contactphoto[1]} alt="Contact Person 2" />
-              <address className="contact-info">
-                Amar Chouhan | Contact: <a style={{ color: 'yellow' }} href="tel:8434849491">8434849491</a> |
-                Email: <a style={{ color: 'yellow' }} href="mailto:buildbrandconstruction@gmail.com">buildbrandconstruction@gmail.com</a> |
-                Address: Hirak Road Harina, P.O- Dumra, P.S- Barora, Dhanbad, Jharkhand, 828306
+                Address: Hirak Road Harina, P.O Bhelatand, Dhanbad Jharkhand-828103
               </address>
             </div>
           </section>
@@ -198,6 +191,7 @@ const MainContent = ({ activePage }) => {
 const styles = {
   main: {
     textAlign: 'center',
+    
   },
 };
 
