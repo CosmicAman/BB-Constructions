@@ -118,7 +118,14 @@ const MainContent = ({ activePage }) => {
                       <span>Elevation Design</span>
                     </>
                   ) : (
-                    <p className='loader'></p>
+                    <p className='info-detail'>
+                      <span>Walkthrough Design</span>
+                      <span>3D Design</span>
+                      <span>Structural Design</span>
+                      <span>Architectural Design</span>
+                      <span>Interior Design</span>
+                      <span>Elevation Design</span>
+                    </p>
                   )}
                 </div>
               </div>
