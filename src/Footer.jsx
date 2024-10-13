@@ -9,11 +9,13 @@ const Footer = React.memo(() => {
       Contact:<a href="tel:8434849491"> 8434849491</a> | 
         Email: <a style={{ color: 'yellow' }} href="mailto:buildbrandconstruction@gmail.com">buildbrandconstruction@gmail.com</a>
       </p>
-      <p
-        style={{ cursor: "pointer", color:"yellow" }}
+      <p>
+      Address:<a
+        style={{ fontSize:"20px", cursor: "pointer", color:"yellow" }}
         onClick={() => window.open('https://maps.app.goo.gl/RcYvnaVzS83KbMt78', '_blank', 'noopener,noreferrer')}
       >
-        Address: Hirak Road Harina, P.O- Dumra, P.S- Barora, Dhanbad, Jharkhand, 828306
+         Hirak Road Harina, P.O- Dumra, P.S- Barora, Dhanbad, Jharkhand, 828306
+      </a>
       </p>
 
       <p>

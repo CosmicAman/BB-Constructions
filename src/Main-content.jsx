@@ -188,6 +188,15 @@ const MainContent = ({ activePage }) => {
                 Address: Hirak Road Harina, P.O Bhelatand, Dhanbad Jharkhand-828103
               </address>
             </div>
+
+            <div className="contact">
+              <img loading="lazy" className="contact-img" src={MediaResources.contactphoto[1]} alt="Contact Person 1" />
+              <address className="contact-info">
+                Amar Chouhan | Contact: <a style={{ color: 'yellow' }} href="tel:8434849491">8434849491</a> |
+                Email: <a style={{ color: 'yellow' }} href="mailto:buildbrandconstruction@gmail.com">buildbrandconstruction@gmail.com</a> |
+                Address: Hirak Road Harina, P.O Bhelatand, Dhanbad Jharkhand-828103
+              </address>
+            </div>
           </section>
         )}
       </Suspense>
